@@ -80,7 +80,12 @@
         <docker.jib-maven-plugin.version>2.6.0</docker.jib-maven-plugin.version>
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
-    </properties>
+         <!--JaCoCo Properties-->
+         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+         <sonar.language>java</sonar.language>
+</properties>
 
     <dependencyManagement>
         <dependencies>
@@ -91,6 +96,12 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+         
+         <dependency>
+               <groupId>org.jacoco</groupId>
+               <artifactId>jacoco-maven-plugin</artifactId>
+               <version>0.8.6</version>
+             </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-bom</artifactId>
